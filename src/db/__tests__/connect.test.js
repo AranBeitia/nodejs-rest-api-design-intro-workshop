@@ -13,7 +13,7 @@ describe("mongoose schemas", () => {
     expect(mongoose.connect).toHaveBeenCalledTimes(1);
 
     expect(mongoose.connect.mock.calls[0][0]).toBe(
-      "mongodb://localhost:27017/myApp",
+      "mongodb://127.0.0.1:27017/myApp",
     );
     expect(mongoose.connect.mock.calls[0][1]).toEqual(expect.any(Object));
   });

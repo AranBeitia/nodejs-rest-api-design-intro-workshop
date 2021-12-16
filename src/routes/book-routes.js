@@ -1,5 +1,5 @@
 const Router = require("express").Router;
-
+const { createBook } = require("../controllers/book-controller");
 /**
  * Finish the route handlers to use the controllers specified
  * and assign the right endpoints for each one
@@ -17,7 +17,7 @@ BookRouter.get("/", () => ({}));
 BookRouter.get("/", () => ({}));
 
 //  POST `/books` Create a book: `createBook()` controller
-BookRouter.post("/", () => ({}));
+BookRouter.post("/", createBook);
 
 //  PATCH `/books/:bookId` Update a book by its id: `updateBook()` controller
 BookRouter.patch("/", () => ({}));
