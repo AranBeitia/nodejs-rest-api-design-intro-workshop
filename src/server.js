@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const { json } = require("body-parser");
 
 const bookRouter = require("./routes/book.routes");
+const userRoutes = require("./routes/user.routes");
 
 const app = express();
 
@@ -12,5 +13,6 @@ app.use(helmet());
 app.use(json());
 
 app.use(bookRouter);
+app.use(userRoutes);
 
 module.exports = app;
