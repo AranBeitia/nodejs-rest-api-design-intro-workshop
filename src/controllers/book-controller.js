@@ -37,10 +37,17 @@ const { logger } = require("../config/config");
  */
 async function createBook(req, res, next) {
   try {
-    const data = res.body;
+    const data = req.body;
     console.log(data);
+
+    const dbRes = await db.Book.create(data);
+
+    res.status(201).send({
+      success: true,
+      data: dbRes,
+    });
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 }
 
@@ -61,7 +68,17 @@ async function createBook(req, res, next) {
  *
  * And call lean() and exec() on the query
  */
-async function getBooks() {}
+async function getBooks(req, res, next) {
+  try {
+    const books = await db.Book.find({}).select({ title: 1 }).lean().exec();
+    res.status(200).send({
+      data: books,
+    });
+    console.log(books);
+  } catch (error) {
+    next(error);
+  }
+}
 
 /**
  * 1. Create the book CRUD controllers
@@ -95,7 +112,16 @@ async function getBooks() {}
  *
  * And call lean() and exec() on the query
  */
-async function getSingleBook() {}
+async function getSingleBook(req, res, next) {
+  try {
+    const book = await db.Book.findById(req.params.bookId).lean().exec();
+    res.status(200).send({
+      data: book,
+    });
+  } catch (error) {
+    next(error);
+  }
+}
 
 /**
  * 1. Create the book CRUD controllers
@@ -122,7 +148,19 @@ async function getSingleBook() {}
  * Wrap the code in a try/catch statement and call next(error)
  * with the error object that is caught
  */
-async function updateBook() {}
+async function updateBook(req, res, next) {
+  try {
+    const bookId = req.params.bookId;
+    console.log(bookId);
+    const updateBook = await db.Book.findByIdAndUpdate(bookId, req.body)
+      .lean()
+      .exec();
+
+    res.status(204).send({ updateBook });
+  } catch (error) {
+    next(error);
+  }
+}
 
 /**
  * 1. Create the book CRUD controllers
@@ -142,7 +180,14 @@ async function updateBook() {}
  * Wrap the code in a try/catch statement and call next(error)
  * with the error object that is caught
  */
-async function deleteBook() {}
+async function deleteBook(req, res, next) {
+  try {
+    await db.Book.deleteOne({ _id: req.params.bookId });
+    res.status(200).send({ data: "Book removed" });
+  } catch (error) {
+    next(error);
+  }
+}
 
 module.exports = {
   createBook: createBook,

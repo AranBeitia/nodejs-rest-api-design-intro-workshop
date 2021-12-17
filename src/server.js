@@ -3,7 +3,7 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const { json } = require("body-parser");
 
-const bookRouter = require("./routes/book-routes");
+const bookRouter = require("./routes/book.routes");
 
 const app = express();
 

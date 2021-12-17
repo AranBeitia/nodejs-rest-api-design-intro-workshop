@@ -699,7 +699,7 @@ Open the files indicated bellow and read the instructions and requirements of th
 
 ### 1. Create the books CRUD controllers in the `/src/routes/book-controllers.js` file
 
-### 2. Create the books CRUD routes in the `/src/routes/book-routes.js` file
+### 2. Create the books CRUD routes in the `/src/routes/book.routes.js` file
 
 - **Test suite:** "books crud controllers"
 
