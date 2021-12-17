@@ -9,9 +9,12 @@ UserRouter.get("/users", userController.getUsers);
 UserRouter.get("/users/:userId", userController.getOneUser);
 
 // POST create an user
+UserRouter.post("/users", userController.createUser);
 
 // PATCH update an user by id
+UserRouter.patch("/users/:userId", userController.updateUser);
 
 // DELETE an user by id
+UserRouter.delete("/users/:userId", userController.deleteUser);
 
 module.exports = UserRouter;
