@@ -4,7 +4,8 @@ const morgan = require("morgan");
 const { json } = require("body-parser");
 
 const bookRouter = require("./routes/book.routes");
-const userRoutes = require("./routes/user.routes");
+const userRouter = require("./routes/user.routes");
+const songRouter = require("./routes/song.routes");
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(helmet());
 app.use(json());
 
 app.use(bookRouter);
-app.use(userRoutes);
+app.use(userRouter);
+app.use(songRouter);
 
 module.exports = app;
