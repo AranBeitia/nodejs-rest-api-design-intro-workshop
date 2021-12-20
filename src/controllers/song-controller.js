@@ -11,7 +11,9 @@ async function createSong(req, res, next) {
 
 async function getAllSongs(req, res, next) {
   try {
-    const data = await db.Song.find({}).exec();
+    const data = await db.Song.find({})
+      .populate("author")
+      .populate({ path: "song.author", model: "User" });
     res.status(200).send({ message: "Todo ok", data });
   } catch (error) {
     next(error);
@@ -20,7 +22,9 @@ async function getAllSongs(req, res, next) {
 
 async function getOneSong(req, res, next) {
   try {
-    const data = await db.Song.findById(req.params.songId);
+    const data = await db.Song.findById(req.params.songId)
+      .populate("author")
+      .populate({ path: "song.author", model: "User" });
     res.status(200).send(data);
   } catch (error) {
     next(error);
