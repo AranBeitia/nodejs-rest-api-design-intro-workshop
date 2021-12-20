@@ -6,6 +6,7 @@ const cors = require("cors");
 
 const bookRouter = require("./routes/book-routes");
 const userRouter = require("./routes/user-routes");
+const AuthRouter = require("./routes/auth.routes");
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(json());
 
 app.use(bookRouter);
 app.use(userRouter);
+app.use(AuthRouter);
 app.use(cors({}));
 
 module.exports = app;
