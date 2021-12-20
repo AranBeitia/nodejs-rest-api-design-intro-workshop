@@ -12,6 +12,6 @@ connect().then(async function onServerInit() {
   // await seedBooks();
 
   app.listen(config.app.PORT, () => {
-    config.logger.info(`Server running at http://localhost:${config.app.PORT}`);
+    config.logger.info(`Server running at http://127.0.0.1:${config.app.PORT}`);
   });
 });

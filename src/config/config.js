@@ -13,7 +13,7 @@ const CONFIG = {
       PORT: process.env.PORT || 4000,
     },
     client: {
-      URL: process.env.CLIENT_URL || "http://localhost:3000",
+      URL: process.env.CLIENT_URL || "http://127.0.0.1:3000",
     },
     logger: {
       warn: logger.warn,
@@ -46,7 +46,7 @@ const CONFIG = {
       PORT: process.env.PORT || 4000,
     },
     client: {
-      URL: process.env.CLIENT_URL || "http://localhost:3000",
+      URL: process.env.CLIENT_URL || "http://127.0.0.1:3000",
     },
     logger: {
       warn: logger.warn,
@@ -79,7 +79,7 @@ const CONFIG = {
       PORT: process.env.PORT || 4000,
     },
     client: {
-      URL: process.env.CLIENT_URL || "http://localhost:3000",
+      URL: process.env.CLIENT_URL || "http://127.0.0.1:3000",
     },
     logger: {
       warn: logger.warn,

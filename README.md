@@ -1538,7 +1538,7 @@ export async function syncUserData() {
 
   return axios({
     method: "POST",
-    url: "http://localhost:4000/sign-up",
+    url: "http://127.0.0.1:4000/sign-up",
     headers: {
       Authorization: `Bearer ${userToken}`,
     },
